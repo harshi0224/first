@@ -30,10 +30,15 @@ function Shoppingcart(){
        temp[i].count--
         setcart(temp)
     }
-    function remove(ind){
+    function remove(b,ind){
         var temp=[...cart]
         temp.splice(ind,1)
         setcart(temp,ind)
+        var y=products.findIndex((c)=>{
+            return (c.id===b.id);
+        });
+        products[y].IsProductInCart=false
+        products[y].count=0
     }
     return(
         <div className="d-flex flex-wrap">
@@ -42,7 +47,7 @@ function Shoppingcart(){
             <ul className="d-flex flex-wrap">
             {
                 products.map((a,i)=>{
-                    return <div className="card shadow-lg p-3 rounded m-4 " style={{width: '14rem',backgroundColor:'lightpink'}}>
+                    return <div className="card shadow-lg p-3 rounded m-4 " style={{width: '14rem',backgroundColor:'orange'}}>
                     
                     <div className="card-body d-flex flex-column justify-content-between">
                         <img src={a.image} style={{height:'160px',width:'160px'}} alt="Card image cap"/>
@@ -67,7 +72,7 @@ function Shoppingcart(){
 
                {
                 cart.length>0 && cart.map((b,ind)=>{
-                    return <div className="card shadow-lg  rounded  m-2 mb-4" style={{backgroundColor:'lightpink'}} >
+                    return <div className="card shadow-lg  rounded  m-2 mb-4" style={{backgroundColor:'orange'}} >
                        <div className="card-body d-flex justify-content-between" >
                             <center><img src={b.image} style={{height:'90px',width:'90px'}} alt="Card image cap"/></center>
                             <h5 className="card-title mb-5">{b.title}</h5>
@@ -76,7 +81,7 @@ function Shoppingcart(){
                     <button className="btn btn-info" onClick={()=>{dec(ind)}} disabled={b.count===1?true:false}>-</button>
                     <span>{b.count}</span>
                     <button className="btn btn-info" onClick={()=>{inc(ind)}}>+</button>
-                    <button className="btn btn-info" style={{position:'absolute',left:'100px'}} onClick={()=>{remove(ind)}}>Remove</button></center>
+                    <button className="btn btn-info" style={{position:'absolute',left:'100px'}} onClick={()=>{remove(b,ind)}}>Remove</button></center>
                     </div>
                     
                     
@@ -102,4 +107,4 @@ function Shoppingcart(){
         </div>
     )
 }
-u0export default Shoppingcart;
+export default Shoppingcart;
