@@ -20,7 +20,6 @@ function Gallery(){
        setAlbum([...album,temp[i]])
     } 
 
-    
 
     function remove(b,ind){
         var temp=[...album]
@@ -38,19 +37,13 @@ function Gallery(){
             <ul className="d-flex flex-wrap">
             {
                 photos.map((a,i)=>{
-                    return <div className="card shadow-lg p-3 rounded m-4 bg-light" style={{width: '14rem'}}>
+                    return <div className="image card shadow-lg p-2 m-3 bg-light" style={{width: '14rem'}}>
                     
                     <div className="card-body d-flex flex-column justify-content-between">
-                        <img src={a.download_url} style={{height:'160px',width:'160px'}}  alt="Card image cap"/>
-                        
-                    <div>
+                        <img src={a.download_url} style={{height:'160px',width:'160px'}}/>
+                        <div className="gallery" onClick={()=>{addtoGallery(i)}}>Add to Gallery</div>
+                    </div>  
                     
-                    <center><button className="btn btn-info mt-2" onClick={()=>{addtoGallery(i)}}  disabled={a.IsImageInGallery?true:false}>Add to Gallery</button></center>
-                      
-                      
-                    </div>
-                      
-                    </div>
                   </div>
                 })
             }
