@@ -12,3 +12,12 @@ code {
     monospace;
 }
 
+.mybox{
+  border: 1px solid;
+  padding: 10px;
+  margin-bottom: 10px;
+}
+button.shopping:disabled{
+  background-color: darkmagenta;
+  color: white;
+}
