@@ -1,15 +1,18 @@
-import logo from './logo.svg';
-import './App.css';
-import axios from 'axios';
-import 'bootstrap/dist/css/bootstrap.css';
-import 'bootstrap/dist/js/bootstrap.bundle.min';
-import Shopping from './Shopping';
-function App() {
-  return (
-    <div>
-      <Shopping></Shopping>
-    </div>
-  );
-}
+import React from 'react';
+import {Outlet} from 'react-router-dom';
+import NavBar from './NavBar';
+import './App.css'
+import Meals from './Meals'
 
+function App(){
+  return(
+   <div>
+    <NavBar></NavBar>
+    <Outlet></Outlet>
+   
+    <Meals></Meals>
+    </div>
+
+  )
+}
 export default App;
