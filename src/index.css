@@ -28,9 +28,7 @@ code {
   cursor: pointer;
   border: none;
 }
-.underline{
-  text-decoration: underline wavy black;
-}
+
 button:disabled{
   background-color: grey;
   color: white;
