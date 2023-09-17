@@ -16,6 +16,9 @@ function Meal(){
     },[])
     return (
         <div style={{display:'flex',flexWrap:'wrap'}}>
+            <div style={{width:'30%'}}>
+                <center class="underline"><h1>ITEMS</h1></center>
+                <ul className='d-flex flex-wrap'>
             {
                 food.map((a)=>{
                     return <Card sx={{ maxWidth: 345, minWidth:250 }}>
@@ -29,9 +32,11 @@ function Meal(){
                             </Card>
                 })
             }
-
+                </ul>
+            </div>
             
         </div>
+ 
         
    )
     
