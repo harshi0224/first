@@ -5,6 +5,7 @@ import CardMedia from '@mui/material/CardMedia';
 import Typography from '@mui/material/Typography';
 function Meal(){
     var [food,setFood] = React.useState([])
+    var[item,setItem]=React.useState([])
     React.useEffect(function(){
       axios.get("https://www.themealdb.com/api/json/v1/1/search.php?s=")
       .then((res)=>{
@@ -13,7 +14,25 @@ function Meal(){
         setFood(items)
     })
     
-    },[])
+    },[]);
+    function addtoCart(i){
+        var temp=[...food]
+        temp[i].IsItemInCart=true;
+        setItem([...item,temp[i]])
+    }
+    function remove(b,ind)
+    {
+        let delconfirm=window.confirm("Are you sure you want to delete this image?")
+        if(delconfirm){
+            var temp=[...item]
+            temp.splice(ind,1)
+            setItem(temp)
+        }
+        var x=food.findIndex((c)=>{
+            return (c.id===b.id)
+        })
+        food[x].IsItemInCart=false;
+    }
     return (
         <div style={{display:'flex',flexWrap:'wrap'}}>
             <div style={{width:'30%'}}>
