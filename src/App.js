@@ -7,7 +7,9 @@ import Shopping from './Shopping';
 function App() {
   return (
     <div>
-      <Shopping></Shopping>
+      <React.Fragment>
+        <Navbar/>
+      </React.Fragment>
     </div>
   );
 }
